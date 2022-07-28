@@ -12,10 +12,20 @@ function App() {
     remainingContacts = remainingContacts.filter(contact => contact.name !== remainingContacts[random].name);
     setRemainingContacts(remainingContacts);
   };
+  function handleSortByName() {
+    const sortedByName = [...showContacts].sort((a,b) => a < b ? 1 : -1);
+    setShowContacts(sortedByName);
+  };
+  function handleSortByPopularity() {
+    const sortedByPopularity = [...showContacts].sort((a,b) => b.popularity - a.popularity);
+    setShowContacts(sortedByPopularity);
+  };
   return (
     <div className="App">
       <h1>IronContacts</h1>
       <button className="random-btn" onClick={() => addRandomContact(showContacts, remainingContacts)}>Add Random Contact</button>
+      <button className="random-btn" onClick={() => handleSortByName(showContacts)}>Sort By Name</button>
+      <button className="random-btn" onClick={() => handleSortByPopularity(showContacts)}>Sort By Popularity</button>
       <table className="contactTable">
         <tbody>
           <tr className="tableHeaders">
