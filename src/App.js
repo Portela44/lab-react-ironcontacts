@@ -20,6 +20,10 @@ function App() {
     const sortedByPopularity = [...showContacts].sort((a,b) => b.popularity - a.popularity);
     setShowContacts(sortedByPopularity);
   };
+  function handleDelete(id) {
+    const contactsAfterDelete = showContacts.filter(contact => contact.id !== id);
+    setShowContacts(contactsAfterDelete);
+  }
   return (
     <div className="App">
       <h1>IronContacts</h1>
@@ -29,6 +33,7 @@ function App() {
       <table className="contactTable">
         <tbody>
           <tr className="tableHeaders">
+            <th></th>
             <th>Picture</th>
             <th>Name</th>
             <th>Popularity</th>
@@ -38,6 +43,7 @@ function App() {
           {showContacts.map(contact => {
             return (
               <tr className="tableContact" key={contact.name}>
+                <th><button onClick={() => handleDelete(contact.id)}>Delete</button></th>
                 <th><img src={contact.pictureUrl} alt={contact.name}></img></th>
                 <th>{contact.name}</th>
                 <th>{contact.popularity.toFixed(2)}</th>
