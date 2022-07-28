@@ -11,3 +11,24 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* Table styles */
+
+.contactTable {
+  margin: 0 auto;
+}
+
+.tableHeaders > th {
+  font-size: 1.2em;
+}
+
+.tableContact > th > img {
+  width: 100px;
+}
+
+.tableContact > th {
+  font-weight: 500;
+  padding: 5px;
+}
+
+
