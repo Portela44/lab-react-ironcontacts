@@ -20,6 +20,7 @@ code {
 
 .tableHeaders > th {
   font-size: 1.2em;
+  width: 80px;
 }
 
 .tableContact > th > img {
